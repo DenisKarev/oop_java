@@ -9,7 +9,6 @@ import java.util.LinkedList;
 public class Database<T> {
     private LinkedList<T> base = new LinkedList<T>();
 
-
     // private int lastId;
 
     // public int getLastId(){
