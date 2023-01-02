@@ -8,18 +8,12 @@ import java.util.LinkedList;
 
 public class Database<T> {
     private LinkedList<T> base = new LinkedList<T>();
-
-    // private int lastId;
-
-    // public int getLastId(){
-    //     return lastId++;
-    // };
     
-    public void add(T item) {
+    public void add2Db(T item) {
         this.base.add(item);
     }
 
-    public T get(int item){
+    public T getFdb(int item){
         return this.base.get(item);
     }
 
