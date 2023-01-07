@@ -8,7 +8,7 @@ public class get {
         // Person s = db.getPersDb().get(id).showAll();
     
         return String.format("%s",
-            db.getAllData(id)
+            db.getDataById(id)
         );
       }
 }

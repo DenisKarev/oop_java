@@ -6,13 +6,13 @@ public class Phone implements Model {
     private static int lastId = 0;
     private int id;
     private String phone;
-    private int person;
+    // private int persId;
     private String commentary;
 
     public Phone(String phone, int person, String comm) {
         this.id = getNewId();
         this.phone = phone;
-        this.person = person;
+        // this.persId = person;
         this.commentary = comm;
     }
 
@@ -21,9 +21,8 @@ public class Phone implements Model {
     }
 
     @Override
-    public String showAll(int pid) {
+    public String show() {
         // TODO Auto-generated method stub
-        return String.format("%d %s %s", id, phone, "(" + commentary + ")");
-    }
-
+        return String.format("%s %s", phone, "(" + commentary + ")");
+    }       
 }
