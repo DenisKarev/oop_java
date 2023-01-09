@@ -13,7 +13,11 @@ public class Phone implements Model {
         this.id = getNewId();
         this.phone = phone;
         // this.persId = person;
-        this.commentary = comm;
+        if (comm == "") {
+            this.commentary = " ";
+        } else {
+            this.commentary = comm;
+        }
     }
 
     private int getNewId() {
@@ -22,7 +26,14 @@ public class Phone implements Model {
 
     @Override
     public String show() {
-        // TODO Auto-generated method stub
         return String.format("%s %s", phone, "(" + commentary + ")");
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getCommentary() {
+        return commentary;
     }       
 }

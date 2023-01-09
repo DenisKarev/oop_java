@@ -24,7 +24,11 @@ public class Person implements Model {
         this.firstName = fName;
         this.secondName = sName;
         this.birthDate = bDate;
-        this.commentary = comm;
+        if (comm == "") {
+            this.commentary = " ";
+        } else {
+            this.commentary = comm;
+        }
     }
 
     private int getNewId() {
@@ -43,6 +47,26 @@ public class Person implements Model {
             ph.add(phone);
         }
         return ph;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public String getCommentary() {
+        return commentary;
     }
 
 }
