@@ -6,13 +6,13 @@ public class Phone implements Model {
     private static int lastId = 0;
     private int id;
     private String phone;
-    // private int persId;
+    private int persId;
     private String commentary;
 
     public Phone(String phone, int person, String comm) {
         this.id = getNewId();
         this.phone = phone;
-        // this.persId = person;
+        this.persId = person;
         if (comm == "") {
             this.commentary = " ";
         } else {
