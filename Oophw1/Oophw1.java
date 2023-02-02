@@ -15,6 +15,6 @@ class Oophw1 {
             db.printById(i);
             // System.out.printf("%s \n", db.getDataById(i));
         }
-        // System.err.println(m.mainMenu());
+        System.err.println(m.mainMenu());
     }
 }
