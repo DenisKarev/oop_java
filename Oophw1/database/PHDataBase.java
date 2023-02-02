@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 
-import datatables.Address;
+// import datatables.Address;
 
 public class PHDataBase implements Db_Io { // extends Db ?? extends Database
     Database<Person> persDb = new Database<Person>();
@@ -70,21 +70,28 @@ public class PHDataBase implements Db_Io { // extends Db ?? extends Database
     }
 
     public void readDb() {
-        // Charset ch = Charset.forName("UTF-8");
+        Charset ch = Charset.forName("UTF-8");
         // Charset ch = Charset.defaultCharset();
         // TODO Auto-generated method stub
         String str = "";
 
         try {
-            // File file = new File(database.settings.dbfile);
-            // FileReader f = new FileReader(file, ch);
+            File file = new File(database.dbfile.dbfile);
+            FileReader f = new FileReader(file, ch);
+            BufferedReader bufR = new BufferedReader(f);
+            if(bufR.ready()) bufR.readLine();
 
-            BufferedReader bufR = new BufferedReader(new FileReader(database.settings.dbfile));
+            String pprev = "";
 
             while ((str = bufR.readLine()) != null) {
                 String[] a = str.split(";");
-                persDb.add2Db(new Person(a[0], a[1], a[2], a[3]));
-                persDb.getFdb(Integer.parseInt(a[0])).addPhone(new Phone(a[4], Integer.parseInt(a[5]), a[6]));
+                if (a[0].equals(pprev)) {
+                    persDb.getFdb(Integer.parseInt(a[0])).addPhone(new Phone(a[5], Integer.parseInt(a[0]), a[6]));
+                } else {
+                    persDb.add2Db(new Person(a[1], a[2], a[3], a[4]));
+                    persDb.getFdb(Integer.parseInt(a[0])).addPhone(new Phone(a[5], Integer.parseInt(a[0]), a[6]));
+                }
+                pprev = a[0];
             }
             bufR.close();
         } catch (FileNotFoundException e) {
@@ -93,13 +100,13 @@ public class PHDataBase implements Db_Io { // extends Db ?? extends Database
             System.out.println(e.getMessage());
         }
 
-        // return str;
     }
 
     public void writeDb() {
         // TODO Auto-generated method stub
-        try (FileWriter bufW = new FileWriter(database.settings.dbfile, false)) {
+        try (FileWriter bufW = new FileWriter(database.dbfile.dbfile, false)) {
             if (this.size() > 0) {
+                bufW.append("PHDataBase;" + System.lineSeparator());
                 for (int i = 0; i < this.size(); i++) {
                     this.writePerson2Db(i, bufW);
                 }

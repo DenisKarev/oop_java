@@ -5,6 +5,7 @@ class Oophw1 {
     public static void main(String[] args) {
         Menus m = new Menus();
         PHDataBase db = new PHDataBase();
+        // db.writeDb();
         // System.out.printf("0 %s \n", db.getDataById(0));
         // System.out.printf("1 %s \n", db.getDataById(1));
         // System.out.printf("2 %s \n", db.getDataById(2));
