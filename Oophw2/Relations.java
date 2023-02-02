@@ -1,0 +1,4 @@
+enum Relations {
+  PARENT,
+  CHILD
+}
