@@ -1,5 +1,5 @@
 package model;
 
 public interface Model {
-    public String showAll();
+    public String show();
 }

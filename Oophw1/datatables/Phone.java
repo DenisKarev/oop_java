@@ -3,16 +3,21 @@ package datatables;
 import model.Model;
 
 public class Phone implements Model {
-    private int lastId = 0;
-    int id;
-    String phone;
-    int person;
+    private static int lastId = 0;
+    private int id;
+    private String phone;
+    // private int persId;
+    private String commentary;
 
-    public Phone(String phone, int person) {
+    public Phone(String phone, int person, String comm) {
         this.id = getNewId();
-        System.out.println(id + lastId);
         this.phone = phone;
-        this.person = person;
+        // this.persId = person;
+        if (comm == "") {
+            this.commentary = " ";
+        } else {
+            this.commentary = comm;
+        }
     }
 
     private int getNewId() {
@@ -20,9 +25,15 @@ public class Phone implements Model {
     }
 
     @Override
-    public String showAll() {
-        // TODO Auto-generated method stub
-        return String.format("%s", phone);
+    public String show() {
+        return String.format("%s %s", phone, "(" + commentary + ")");
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getCommentary() {
+        return commentary;
+    }       
 }

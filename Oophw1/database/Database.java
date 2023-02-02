@@ -2,26 +2,19 @@ package database;
 
 import java.util.LinkedList;
 
-// import model.Address;
-// import model.Person;
-// import model.Phone;
+public class Database<Person> {
+    private LinkedList<Person> base = new LinkedList<Person>();
 
-public class Database<T> {
-    private LinkedList<T> base = new LinkedList<T>();
-
-
-    // private int lastId;
-
-    // public int getLastId(){
-    //     return lastId++;
-    // };
-    
-    public void add(T item) {
+    public void add2Db(Person item) {
         this.base.add(item);
     }
 
-    public T get(int item){
+    public Person getFdb(int item) {
         return this.base.get(item);
+    }
+
+    public int size() {
+        return base.size();
     }
 
 }

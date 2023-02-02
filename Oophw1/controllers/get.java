@@ -7,10 +7,8 @@ public class get {
         
         // Person s = db.getPersDb().get(id).showAll();
     
-        return String.format("%s %s %s",
-            db.getPersDb().get(id).showAll(),
-            db.getAddrDb().get(id).showAll(),
-            db.getPhonDb().get(id).showAll()
+        return String.format("%s",
+            db.getDataById(id)
         );
       }
 }
