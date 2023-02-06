@@ -1,6 +1,6 @@
-package datatables;
+package Oophw5.datatables;
 
-import model.Model;
+import Oophw5.model.Model;
 
 public class Address implements Model {
     private static int lastId = 0;
@@ -27,7 +27,21 @@ public class Address implements Model {
     @Override
     public String show() {
         // TODO Auto-generated method stub
-        return String.format("%d %s %s %d-%d (%s)", persId, town, street, building, appartment, commentary);
+        return this.commentary.equalsIgnoreCase(" ") ?
+            String.format("%d %s %s %d-%d",
+            this.persId,
+            this.town,
+            this.street,
+            this.building,
+            this.appartment)
+            :
+            String.format("%d %s %s %d-%d (%s)",
+            this.persId,
+            this.town,
+            this.street,
+            this.building,
+            this.appartment,
+            this.commentary);
     }
 
     public int getPersId() {

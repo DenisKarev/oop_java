@@ -1,19 +1,26 @@
-package database;
+package Oophw5.database;
 
 import java.util.LinkedList;
 
-public class Database<Person> {
-    private LinkedList<Person> base = new LinkedList<Person>();
+public class Database<T> {
+    private static int lastId = 0;
 
-    public void add2Db(Person item) {
+    private LinkedList<T> base = new LinkedList<T>();
+
+    protected void addToDb(T item) {
         this.base.add(item);
+        lastId++;
     }
 
-    public Person getFdb(int item) {
+    protected T getFromdb(int item) {
         return this.base.get(item);
     }
 
-    public int size() {
+    public static int getLastId() {
+        return lastId;
+    }
+
+    protected int getSize() {
         return base.size();
     }
 
